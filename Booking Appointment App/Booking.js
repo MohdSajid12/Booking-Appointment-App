@@ -1,41 +1,4 @@
-// Put DOM elements into variables
-const myForm = document.querySelector('#my-form');
-const nameInput = document.querySelector('#name');
-const emailInput = document.querySelector('#email');
-const msg = document.querySelector('.msg');
-const userList = document.querySelector('#users');
-
-// Listen for form submit
-myForm.addEventListener('submit', onSubmit);
-
-function onSubmit(e) {
-  e.preventDefault();
-  
-  if(nameInput.value === '' || emailInput.value === '') {
-    // alert('Please enter all fields');
-    msg.classList.add('error');
-    msg.innerHTML = 'Please enter all fields';
-
-    // Remove error after 3 seconds
-    setTimeout(() => msg.remove(), 3000);
-  } else {
-    // Create new list item with user
-    const li = document.createElement('li');
-
-    // Add text node with input values
-    li.appendChild(document.createTextNode(`${nameInput.value}: ${emailInput.value}`));
-
-    // Add HTML
-    // li.innerHTML = `<strong>${nameInput.value}</strong>e: ${emailInput.value}`;
-
-    // Append to ul
-    userList.appendChild(li);
-
-    // Clear fields
-    nameInput.value = '';
-    emailInput.value = '';
-  }
-}function saveToLocalStorage(event){
+unction saveToLocalStorage(event){
     event.preventDefault();
     const name = event.target.username.value;
     const email = event.target.emailId.value;
@@ -45,4 +8,28 @@ function onSubmit(e) {
       email
     }
     localStorage.setItem(obj.email, JSON.stringify(obj));
+    showNewUserOnScreen(obj)
+  }
+  function showNewUserOnScreen(user){
+    const parentNode = document.getElementById('items');
+      const childHTML = `<li id =${user.email}> ${user.name} - ${user.email} <button onclick=deleteUser('${user.email}')> Delete Data 
+      </button> <button onclick =editUserDetails('${user.email}','${user.name}' )> Edit Data</button></li>`
+      parentNode.innerHTML = parentNode.innerHTML+childHTML;
+    
+  }
+  function deleteUser(emailId){
+    localStorage.removeItem(emailId)
+    removeUserFromScreen(emailId)
+  }
+  function removeUserFromScreen(emailId){
+    const parentNode = document.getElementById('items');
+    const childNodeToBeDeleted = document.getElementById(emailId);
+    parentNode.removeChild(childNodeToBeDeleted);
+  }
+
+  function editUserDetails(emailId , name)
+  {
+     document.getElementById('name').value = username;
+     document.getElementById('email').value = emailId
+     deleteUser(emailId)
   }
