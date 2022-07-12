@@ -1,4 +1,4 @@
-unction saveToLocalStorage(event){
+function saveToLocalStorage(event){
     event.preventDefault();
     const name = event.target.username.value;
     const email = event.target.emailId.value;
