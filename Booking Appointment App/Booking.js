@@ -35,11 +35,14 @@ function onSubmit(e) {
     nameInput.value = '';
     emailInput.value = '';
   }
-}
- function saveToLocalStorage(event){
+}function saveToLocalStorage(event){
     event.preventDefault();
     const name = event.target.username.value;
     const email = event.target.emailId.value;
-    localStorage.setItem('name', name);
-   localStorage.setItem('email', email);
-}
+
+    const obj ={
+      name,
+      email
+    }
+    localStorage.setItem(obj.email, JSON.stringify(obj));
+  }
