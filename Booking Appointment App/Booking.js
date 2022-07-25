@@ -31,7 +31,7 @@ axios.post("https://crudcrud.com/api/ed3b65b9bdb0404496477ac50a01834f/Appointmen
   function showNewUserOnScreen(user){
     const parentNode = document.getElementById('items');
       const childHTML = `<li id =${user.id}> ${user.name} - ${user.email} <button onclick=deleteUser('${user.id}')> Delete Data 
-      </button> <button onclick =editUserDetails('${user.id}','${user.name}')> Edit Data</button></li>`
+      </button> <button onclick =editUserDetails('${user.id}','${user.name}' ,${user._id})> Edit Data</button></li>`
       parentNode.innerHTML = parentNode.innerHTML+childHTML;
     
   }
@@ -53,7 +53,14 @@ axios.post("https://crudcrud.com/api/ed3b65b9bdb0404496477ac50a01834f/Appointmen
     parentNode.removeChild(childNodeToBeDeleted);
   }
 
-  function editUserDetails(email,name)
+//   function editUserDetails(email,username)
+//   {
+//      document.getElementById('name').value = username;
+//      document.getElementById('email').value = emailId;
+//      deleteUser(emailId)
+//   }
+ 
+  function editUserDetails(emailId,username,userId)
   {
      document.getElementById('name').value = username;
      document.getElementById('email').value = emailId;
