@@ -1,10 +1,12 @@
+
+    
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>JS For Beginners</title>
+    <title>Booking Appointment App</title>
     <link rel="stylesheet" href="Bokking.css">
   </head>
   <body>
@@ -18,16 +20,14 @@
         <div class="msg"></div>
         <div>
           <label for="name">Name:</label>
-          <input type="text" name="username" id="name" required>
+          <input type="text" name="username" id="name" required/>
         </div>
         <div>
           <label for="email">Email:</label>
-          <input type="text" name="emailId" id="email" required>
+          <input type="text" name="emailId" id="email" required/>
         </div>
         <input class="btn" type="submit" value="Submit">
       </form>
-
-      <ul id="users"></ul>
 
       <!-- <ul class="items">
         <li class="item">Item 1</li>
@@ -35,16 +35,10 @@
         <li class="item">Item 3</li>
       </ul> -->
     </section>
-    
+       <ul id="items"></ul>
+    <script src ="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
 
     <script src="Booking.js">
-        // function saveToLocalStorage(event){
-        //     event.preventDefault();
-        //     const name = event.target.username.value;
-        //     const email = event.target.emailId.value;
-        //     localStorage.setItem('name', name);
-        //     localStorage.setItem('email', email);
-        // }
     </script>
   </body>
 </html>
